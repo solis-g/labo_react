@@ -39,7 +39,7 @@ class StudentForm extends React.Component {
                 <label htmlFor={horario}>{horario}</label>
                 <input
                     type={type}
-                    horario={horario} id={carnet}
+                    horario={horario} id={horario}
                     value={this.state[horario]}
                     placeholder= {placeholder}
                     onChange={this.handleInputChange}/>

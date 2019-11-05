@@ -1,5 +1,5 @@
 class Student {
-    constructor(carnet, horario, lastname) {
+    constructor(carnet, horario, schedule) {
         this._carnet = carnet;
         this._horario = horario;
         this._schedule = schedule;
