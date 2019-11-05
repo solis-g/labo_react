@@ -5,7 +5,7 @@ import Student from './Student';
 class StudentForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { carnet: '', name: '', lastname: '' };
+        this.state = { carnet: '', horario: '', schedule: '' };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,31 +16,31 @@ class StudentForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         // Se necesitan validaciones de entrada
-        let student = new Student(this.state.carnet, this.state.name, this.state.lastname);
+        let student = new Student(this.state.carnet, this.state.horario, this.state.schedule);
         this.props.onSave(student);
     }
 
     handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+        const horario = target.horario;
 
         this.setState({
-            [name]: value
+            [horario]: value
         });
     }
 
     // Label + input
     // TODO: Necesita se modificado para funcionar con todos los tipos de entrada
-    renderInput(name,placeholder, type = "text") {
+    renderInput(horario,placeholder, type = "text") {
         return (
             /* Se un fragmento React, para establecer que este código se hijo directo en el resultado */
             <fieldset>
-                <label htmlFor={name}>{name}</label>
+                <label htmlFor={horario}>{horario}</label>
                 <input
                     type={type}
-                    name={name} id={name}
-                    value={this.state[name]}
+                    horario={horario} id={carnet}
+                    value={this.state[horario]}
                     placeholder= {placeholder}
                     onChange={this.handleInputChange}/>
             </fieldset>
@@ -51,9 +51,9 @@ class StudentForm extends React.Component {
         return (
             <form id="contact" action="" onSubmit={this.handleSubmit}>
                 <h3>Student Form</h3>
-                {this.renderInput("ingrese el carnet","")}
-                {this.renderInput("name","")}
-                {this.renderInput("lastname","")}
+                {this.renderInput("ingrese el carnet: ","")}
+                {this.renderInput("horario: ","")}
+                {this.renderInput("schedule: ","")}
                 <fieldset>
                     <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
                 </fieldset>

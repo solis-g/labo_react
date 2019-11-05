@@ -15,14 +15,16 @@ class StudentsList extends React.Component {
     }
 
     renderBody(students) {
-        return students.map(({ carnet, horario, lastname }) => {
+        return students.map(({ carnet, horario, schedule }) => {
             return (
                 <tr key={carnet}>
                     <td>{carnet}</td>
                     <td>{horario}</td>
-                    <td>{lastname}</td>
+                    <td>{schedule}</td>
                     <td>
-                        <button  onClick={() => {this.props.onDelete(carnet)}}>Delete</button>
+                        <button  
+                            onClick={() => {this.props.onDelete(carnet)}}>Delete
+                        </button>
                     </td>
                 </tr>
             );
@@ -37,7 +39,8 @@ class StudentsList extends React.Component {
                     <thead>
                         <tr>
                             {this.renderHeader()}
-                            <th> actions</th>
+                            <th> Delete</th>
+                        <th>update</th>
                         </tr>
                     </thead>
                     <tbody>
