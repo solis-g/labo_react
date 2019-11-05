@@ -1,8 +1,8 @@
 import React from 'react';
 import Student from './Student';
 
-class StudentForm extends React.Component {
 
+class StudentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { carnet: '', name: '', lastname: '' };
@@ -42,7 +42,7 @@ class StudentForm extends React.Component {
                     name={name} id={name}
                     value={this.state[name]}
                     placeholder= {placeholder}
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange}/>
             </fieldset>
         );
     }
@@ -51,9 +51,9 @@ class StudentForm extends React.Component {
         return (
             <form id="contact" action="" onSubmit={this.handleSubmit}>
                 <h3>Student Form</h3>
-                {this.renderInput("carnet","00031111")}
-                {this.renderInput("name","Next")}
-                {this.renderInput("lastname","Aldana")}
+                {this.renderInput("ingrese el carnet","")}
+                {this.renderInput("name","")}
+                {this.renderInput("lastname","")}
                 <fieldset>
                     <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
                 </fieldset>
